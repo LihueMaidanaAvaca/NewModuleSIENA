@@ -6,7 +6,7 @@
           <img class="login-image" :src="require('@/assets/logo_aabe.png')" alt="Login Image" />
         </div>
         <v-form class="login-form" @submit="login">
-          <v-text-field v-model="email" label="Email"></v-text-field>
+          <v-text-field v-model="email" label="CUIT/CUIL"></v-text-field>
           <v-text-field v-model="password" label="Password" type="password"></v-text-field>
           <v-btn type="submit" color="cyan darken-1">Login</v-btn>
         </v-form>

@@ -1,23 +1,11 @@
+<script setup>
+</script>
+
 <template>
   <v-app>
     <v-main>
-      <LogInForm/>
+      <router-view/>
     </v-main>
   </v-app>
 </template>
 
-<script>
-import LogInForm from './components/LogInForm.vue'
-
-export default {
-  name: 'App',
-
-  components: {
-    LogInForm,
-  },
-
-  data: () => ({
-    //
-  }),
-}
-</script>
