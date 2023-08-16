@@ -1,6 +1,6 @@
 <template>
   <div>
-    <user-banner/>
+    <user-banner style="position: fixed; top: 0; width: 100%; z-index: 100;"/>
     <v-row justify="center" class="mt-6">
       <v-col cols="12" sm="8" md="6">
         <v-sheet elevation="0" class="pa-4">
@@ -8,7 +8,11 @@
         </v-sheet>
       </v-col>
     </v-row>  
-    <list-contract/>
+    <v-row justify="center">
+      <v-col cols="12" sm="10" md="8">
+        <list-contract />
+      </v-col>
+    </v-row>
   </div>
 </template>
 
@@ -29,5 +33,17 @@ export default {
     
 
 <style scoped>
-/* Estilos específicos de esta página, si es necesario */
+@media screen and (min-width: 1200px) {
+  .mt-6 {
+    margin-top: 80px; /* Aumenta el margen superior en pantallas anchas */
+  }
+
+  .headline {
+    font-size: 24px; /* Ajusta el tamaño de fuente en pantallas anchas */
+  }
+
+  .v-col {
+    padding: 0 30px; /* Añade espacio lateral en pantallas anchas */
+  }
+}
 </style>

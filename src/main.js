@@ -5,12 +5,16 @@ import { loadFonts } from './plugins/webfontloader';
 import App from './App.vue';
 import LogInForm from '@/views/LogInPage.vue';
 import HomePage from '@/views/HomePage.vue';
-import ResumeContractPage from '@/views/ResumeContractPage.vue'
+import ResumeContractPage from '@/views/ResumeContractPage.vue';
+import TicketGenerator from '@/views/TicketGenerator.vue'
+import TicketResponse from '@/views/TicketResponse.vue'
 
 const routes = [
   { path: "/", component: LogInForm },
   { path: "/home", component: HomePage },
-  { path: "/resume", component: ResumeContractPage }
+  { path: "/resume", component: ResumeContractPage },
+  { path: "/generator", component: TicketGenerator },
+  { path: "/response", component: TicketResponse },
 ];
 
 const router = new createRouter({

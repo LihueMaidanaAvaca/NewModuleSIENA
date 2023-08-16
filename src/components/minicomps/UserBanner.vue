@@ -18,5 +18,10 @@ export default {
 </script>
 
 <style scoped>
-/* Estilos específicos de esta página, si es necesario */
+/* div{
+  position: fixed;
+  top: 0; 
+  width: 100%; 
+  background-color: #4ad4f2;
+} */
 </style>

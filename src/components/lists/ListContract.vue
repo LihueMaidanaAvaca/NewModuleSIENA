@@ -28,6 +28,8 @@ export default {
         { id: 1, title: 'Contrato 1', type: 'Alquiler', address: 'Av. Callo 234 CABA', count: 'Cuenta Corriente'},
         { id: 2, title: 'Contrato 2', type: 'Alquiler', address: 'Av. Callo 234 CABA', count: 'Cuenta Corriente'},
         { id: 3, title: 'Contrato 3', type: 'Alquiler', address: 'Av. Callo 234 CABA', count: 'Cuenta Corriente'},
+        { id: 3, title: 'Contrato 3', type: 'Alquiler', address: 'Av. Callo 234 CABA', count: 'Cuenta Corriente'},
+        { id: 3, title: 'Contrato 3', type: 'Alquiler', address: 'Av. Callo 234 CABA', count: 'Cuenta Corriente'},
         // Agrega más tarjetas según sea necesario
       ]
     };
