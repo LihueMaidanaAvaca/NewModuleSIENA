@@ -14,7 +14,7 @@ import RecordedPaymentsPage from '@/views/RecordedPaymentsPage.vue'
 const routes = [
   { path: "/", component: LogInForm },
   { path: "/home", component: HomePage },
-  { path: "/resume", component: ResumeContractPage },
+  { path: "/resume/:id", name: 'ContractDetailsPage', component: ResumeContractPage },
   { path: "/generator", component: TicketGenerator },
   // { path: "/response", component: TicketResponse },
   { path: "/response", component: PruebaMensaje },

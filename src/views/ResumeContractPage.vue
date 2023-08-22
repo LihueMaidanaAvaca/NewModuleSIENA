@@ -6,12 +6,12 @@
       <v-card-text>
         <v-row>
           <v-col cols="4">
-            <p>Deuda: {{ deuda }}</p>
-            <p>Intereses: {{ intereses }}</p>
-            <p>Total: {{ total }}</p>
+            <p>Deuda: {{ contract.deuda }}</p>
+            <p>Intereses: {{ contract.intereses }}</p>
+            <p>Total: {{ contract.total }}</p>
           </v-col>
           <v-col cols="8">
-            <p>Próximo Vencimiento: {{ proximoVencimiento }}</p>
+            <p>Próximo Vencimiento: {{ contract.proximoVencimiento }}</p>
           </v-col>
         </v-row>
       </v-card-text>
@@ -66,6 +66,7 @@
 
 <script>
 import UserBanner from '@/components/minicomps/UserBanner.vue';
+import mockData from '@/components/lists/mockData.json';
 
 export default {
   name: 'ResumeContractPage',
@@ -88,8 +89,15 @@ export default {
         { label: 'Pago en cuotas fijas', isSelected: false },
         { label: 'Pago en cuotas variables', isSelected: false },
       ],
-  };
-},
+    };
+  },
+
+  computed: {
+    contract() {
+      const contractId = parseInt(this.$route.params.id, 10);
+      console.log(contractId, 'queondaak')
+      return mockData.find(contract => contract.id === contractId) || {};    },
+  },
 
     methods: {
     handleCheckboxClick(selectedIndex) {

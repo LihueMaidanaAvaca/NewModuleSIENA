@@ -5,7 +5,7 @@
         <div class="login-image-container">
           <img class="login-image" :src="require('@/assets/logo_aabe.png')" alt="Login Image" />
         </div>
-        <v-form class="login-form" @submit.prevent="login">
+        <v-form class="login-form" @submit.prevent="handleSubmit">
           <v-text-field v-model="cuil" label="CUIT/CUIL"></v-text-field>
           <v-text-field v-model="password" label="Password" type="password"></v-text-field>
           <v-btn type="submit" color="cyan darken-1">Login</v-btn>
@@ -17,6 +17,8 @@
 
 
 <script>
+// import axios from 'axios'
+
 export default {
   data() {
     return {
@@ -25,22 +27,26 @@ export default {
     };
   },
   methods: {
-    async login() {
+    async handleSubmit() {
       try {
-        // // Simular una solicitud de autenticación al servidor (reemplaza con tu lógica real)
-        // const response = await this.$axios.post('/api/login', {
+        // Simular una solicitud de autenticación al servidor (reemplaza con tu lógica real)
+        // await axios.post('/api/login', {
         //   cuil: this.cuil,
         //   password: this.password,
         // });
 
-        // // Supongamos que el servidor devuelve un token o algún indicador de autenticación exitosa
+        // Supongamos que el servidor devuelve un token o algún indicador de autenticación exitosa
         // const isAuthenticated = response.data.isAuthenticated;
-
-        console.log(this.cuil,this.password,"?")
 
         const isAuthenticated = this.cuil === this.password;
 
         if (isAuthenticated) {
+          // Simulación de un token (reemplaza con el token real del servidor)
+          const authToken = 'mi-token-secreto';
+
+          // Guardar el token en el localStorage
+          localStorage.setItem('authToken', authToken);
+
           // Redirigir a la página de inicio después de un inicio de sesión exitoso
           this.$router.push('/home');
         } else {
