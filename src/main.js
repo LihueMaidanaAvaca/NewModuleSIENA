@@ -12,7 +12,7 @@ import PruebaMensaje from '@/views/PruebaMensaje.vue'
 import RecordedPaymentsPage from '@/views/RecordedPaymentsPage.vue'
 
 const routes = [
-  { path: "/", component: LogInForm },
+  { path: "/", name: 'LoginPage', component: LogInForm },
   { path: "/home", component: HomePage },
   { path: "/resume/:id", name: 'ContractDetailsPage', component: ResumeContractPage },
   { path: "/generator", component: TicketGenerator },
@@ -24,6 +24,18 @@ const routes = [
 const router = new createRouter({
       history: createWebHistory(),
       routes: routes
+});
+
+router.beforeEach((to, from, next) => {
+  const token = localStorage.getItem('authToken');
+  if (!token && to.name !== 'LoginPage') {
+    // Si no hay token y no estás en la página de inicio de sesión,
+    // redirige a la página de inicio de sesión
+    next({ name: 'LoginPage' });
+  } else {
+    // Si hay token o estás en la página de inicio de sesión, permite la navegación
+    next();
+  }
 });
 
 
