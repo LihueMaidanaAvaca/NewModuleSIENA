@@ -95,7 +95,6 @@ export default {
   computed: {
     contract() {
       const contractId = parseInt(this.$route.params.id, 10);
-      console.log(contractId, 'queondaak')
       return mockData.find(contract => contract.id === contractId) || {};    },
   },
 

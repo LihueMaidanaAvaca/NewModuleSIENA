@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-row justify="center">
+    <v-row justify="center" align="end">
       <v-col cols="12" sm="8" md="6">
         <div class="login-image-container">
           <img class="login-image" :src="require('@/assets/logo_aabe.png')" alt="Login Image" />
@@ -25,6 +25,16 @@ export default {
       cuil: '',
       password: '',
     };
+  },
+  computed: {
+    hasAuthToken() {
+      return localStorage.getItem('authToken') !== null;
+    }
+  },
+  created() {
+    if (this.hasAuthToken) {
+      this.redirectToHome();
+    }
   },
   methods: {
     async handleSubmit() {
@@ -58,6 +68,9 @@ export default {
         // Manejar errores de autenticación si es necesario
       }
     },
+    redirectToHome() {
+      this.$router.push('/home'); // Cambia '/home' por tu ruta de inicio
+    }
   },
 };
 </script>
@@ -65,13 +78,14 @@ export default {
 
 <style>
 .login-form {
-  border: 1px solid #ccc; /* Agrega un borde de 1px de ancho y color gris */
-  padding: 20px; /* Añade un espacio interno alrededor del formulario */
-  border-radius: 8px; /* Añade esquinas redondeadas al formulario */
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 30vh; /* Agrega margen superior para separar el formulario del logo */
 }
 
 .login-image {
-  max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
-  border-radius: 8px; /* Esquinas redondeadas para la imagen */
+  max-width: 100%;
+  border-radius: 8px;
 }
 </style>

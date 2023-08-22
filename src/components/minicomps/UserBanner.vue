@@ -1,41 +1,30 @@
 <template>
   <div class="user-banner">
     <h3 class="user-name">{{ userName }}</h3>
-    <v-menu offset-y>
-      <template v-slot:activator="{ on }">
-        <v-btn v-on="on" icon>
-          <v-icon>mdi-dots-vertical</v-icon>
-        </v-btn>
-      </template>
-      <v-list>
-        <v-list-item link to="/payments">
-          <v-list-item-title>Pagos</v-list-item-title>
-        </v-list-item>
-        <v-list-item @click="logout">
-          <v-list-item-title>Salir</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-menu>
+    
+      <v-list-item link to="/payments" class="option">
+        <v-list-item-title class="option-title">Pagos</v-list-item-title>
+      </v-list-item>
+      <v-list-item @click="logout" class="option">
+        <v-list-item-title class="option-title">Salir</v-list-item-title>
+      </v-list-item>
+    
   </div>
 </template>
 
-
 <script>
-
 export default {
   name: 'UserBanner',
   
   data() {
     return {
-      userName: 'Telefonica Argentina S.A.', // Cambia esto según el nombre real del usuario
+      userName: 'Telefonica Argentina S.A.',
     };
   },
 
   methods: {
     logout() {
-      // Realiza las acciones necesarias para cerrar la sesión, como borrar el token del localStorage
-      localStorage.removeItem('token'); // Por ejemplo, aquí borramos el token
-      // Redirige al usuario a la página de inicio de sesión
+      localStorage.removeItem('authToken');
       this.$router.push({ name: 'LoginPage' });
     },
   },
@@ -56,14 +45,13 @@ export default {
   color: white;
 }
 
-.options {
-  display: flex;
-  align-items: center;
-}
-
 .option {
   color: white;
   text-decoration: none;
-  margin-right: 10px;
+  cursor: pointer;
+}
+
+.option-title {
+  margin: 0;
 }
 </style>
