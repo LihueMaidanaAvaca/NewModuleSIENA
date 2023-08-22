@@ -5,31 +5,57 @@
         <div class="login-image-container">
           <img class="login-image" :src="require('@/assets/logo_aabe.png')" alt="Login Image" />
         </div>
-        <v-form class="login-form" @submit="login">
-          <v-text-field v-model="email" label="CUIT/CUIL"></v-text-field>
+        <v-form class="login-form" @submit.prevent="login">
+          <v-text-field v-model="cuil" label="CUIT/CUIL"></v-text-field>
           <v-text-field v-model="password" label="Password" type="password"></v-text-field>
           <v-btn type="submit" color="cyan darken-1">Login</v-btn>
         </v-form>
       </v-col>
     </v-row>
-  </v-container>      
+  </v-container>
 </template>
+
 
 <script>
 export default {
   data() {
     return {
-      email: '',
+      cuil: '',
       password: '',
     };
   },
   methods: {
-    login() {
-      // Aquí puedes agregar la lógica para enviar los datos de inicio de sesión al servidor.
+    async login() {
+      try {
+        // // Simular una solicitud de autenticación al servidor (reemplaza con tu lógica real)
+        // const response = await this.$axios.post('/api/login', {
+        //   cuil: this.cuil,
+        //   password: this.password,
+        // });
+
+        // // Supongamos que el servidor devuelve un token o algún indicador de autenticación exitosa
+        // const isAuthenticated = response.data.isAuthenticated;
+
+        console.log(this.cuil,this.password,"?")
+
+        const isAuthenticated = this.cuil === this.password;
+
+        if (isAuthenticated) {
+          // Redirigir a la página de inicio después de un inicio de sesión exitoso
+          this.$router.push('/home');
+        } else {
+          // Manejar caso de autenticación fallida si es necesario
+          // Por ejemplo, mostrar un mensaje de error al usuario
+        }
+      } catch (error) {
+        console.error('Error de autenticación:', error);
+        // Manejar errores de autenticación si es necesario
+      }
     },
   },
 };
 </script>
+
 
 <style>
 .login-form {
