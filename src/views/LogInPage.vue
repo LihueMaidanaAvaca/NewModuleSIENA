@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-row justify="center" align="end">
+    <v-row justify="center" :align="'end'">
       <v-col cols="12" sm="8" md="6">
         <div class="login-image-container">
           <img class="login-image" :src="require('@/assets/logo_aabe.png')" alt="Login Image" />
