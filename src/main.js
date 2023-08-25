@@ -13,6 +13,8 @@ import TicketGenerator from '@/views/TicketGenerator.vue'
 // import TicketResponse from '@/views/TicketResponse.vue'
 import PruebaMensaje from '@/views/PruebaMensaje.vue'
 import RecordedPaymentsPage from '@/views/RecordedPaymentsPage.vue'
+import BoletaResponse from '@/components/minicomps/responses/BoletaResponse.vue'
+import VepResponse from '@/components/minicomps/responses/VepResponse.vue'
 
 const routes = [
   { path: "/", name: 'LoginPage', component: LogInForm },
@@ -22,6 +24,16 @@ const routes = [
   // { path: "/response", component: TicketResponse },
   { path: "/response", name: 'ResponsePage', component: PruebaMensaje },
   { path: "/payments", component: RecordedPaymentsPage },
+  {
+    path: '/boleta-response',
+    name: 'BoletaResponse',
+    component: BoletaResponse
+  },
+  {
+    path: '/vep-response',
+    name: 'VEPResponse',
+    component: VepResponse
+  },
 ];
 
 const router = new createRouter({

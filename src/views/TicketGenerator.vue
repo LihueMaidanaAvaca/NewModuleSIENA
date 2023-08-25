@@ -43,7 +43,14 @@ export default {
   name: 'PaymentSelection',
   components: {
       UserBanner
-  },  
+  }, 
+  props: {
+    boleta: Boolean,
+    vep: Boolean,
+    error: Boolean,
+    boletaLink: String,
+    vepnumber: String,
+  }, 
   data() {
     return {
       panels: [
@@ -62,32 +69,28 @@ export default {
       }
       return 'background-color: #f0f0f0; padding: 5px; border-radius: 4px;';
     },
-    generatePayment() {
-    // Lógica para generar el pago
-    console.log('Pago generado:', this.selectedOption);
+    async generatePayment() {
+      console.log('Pago generado:', this.selectedOption);
 
-    // Configurar las propiedades para el componente TicketResponse
-    let props = {
-      boleta: false,
-      vep: false,
-      error: false,
-      boletaLink: '',
-      vepnumber: '',
-    };
+      let props = {
+        boleta: false,
+        vep: false,
+        error: false,
+        boletaLink: '',
+        vepnumber: ''
+      };
 
-    if (this.selectedOption === 'Boleta') {
-      props.boleta = true;
-      props.boletaLink = 'URL_DE_DESCARGA_DE_BOLETA'; // Reemplaza con la URL correcta
-    } else if (this.selectedOption === 'VEP') {
-      props.vep = true;
-      props.vepnumber = 'NUMERO_DEL_VEP'; // Reemplaza con el número correcto
-    } else {
-      props.error = true;
+      if (this.selectedOption === 'Boleta') {
+        props.boletaLink = 'URL_DE_DESCARGA_DE_BOLETA';
+        this.$router.push({ name: 'BoletaResponse', props });
+      } else if (this.selectedOption === 'VEP') {
+        props.vepnumber = 'NUMERO_DEL_VEP';
+        this.$router.push({ name: 'VEPResponse', props });
+      } else {
+        props.error = true;
+        this.$router.push({ name: 'ErrorResponse', props });
+      }
     }
-
-    // Redirigir a la página de respuesta y pasar las propiedades
-    this.$router.push({ name: 'ResponsePage', props });
-  },
     // Métodos para la selección de paneles
   },
 };
