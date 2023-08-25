@@ -18,9 +18,9 @@ const routes = [
   { path: "/", name: 'LoginPage', component: LogInForm },
   { path: "/home", component: HomePage },
   { path: "/resume/:id", name: 'ContractDetailsPage', component: ResumeContractPage },
-  { path: "/generator", component: TicketGenerator },
+  { path: "/generator", name: 'GeneratorPage', component: TicketGenerator, props: true },
   // { path: "/response", component: TicketResponse },
-  { path: "/response", component: PruebaMensaje },
+  { path: "/response", name: 'ResponsePage', component: PruebaMensaje },
   { path: "/payments", component: RecordedPaymentsPage },
 ];
 

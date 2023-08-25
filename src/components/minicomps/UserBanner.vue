@@ -12,7 +12,7 @@
     <!-- Modal de confirmación para cerrar sesión -->
     <v-dialog v-model="logoutConfirmationDialog" max-width="400">
       <v-card>
-        <v-card-title class="headline">¿Estás seguro de que deseas cerrar sesión?</v-card-title>
+        <v-card-title class="headline">¿Estás seguro de cerrar sesión?</v-card-title>
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn color="primary" @click="logout">Sí, Cerrar Sesión</v-btn>

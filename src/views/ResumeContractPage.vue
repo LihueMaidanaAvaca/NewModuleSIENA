@@ -32,10 +32,12 @@
             <!-- Contenido de los panels -->
             <v-card v-if="panels[0].isSelected" class="mb-3" elevation="3">
               <v-card-title>Pago Independiente</v-card-title>
-              <v-card-text>
-                Contenido del método de pago: Pago Independiente.
-              </v-card-text>
+                 <v-card-text>
+                  Contenido del método de pago: Pago Independiente.
+                 <v-btn color="primary" @click="continueToGenerator">Continuar</v-btn>
+             </v-card-text>
             </v-card>
+
             <v-card v-if="panels[1].isSelected" class="mb-3" elevation="3">
               <v-card-title>Seleccione las cuotas a abonar</v-card-title>
               <v-card-text>
@@ -105,6 +107,14 @@ export default {
           panel.isSelected = false;
         }
       });
+     },
+     continueToGenerator() {
+     // Obtén el monto total y la fecha del contrato
+     const montoTotal = this.contract.total;
+     const fecha = this.contract.proximoVencimiento;
+ 
+     // Redirige a la vista /generator con los parámetros
+     this.$router.push({ name: 'GeneratorPage', params: { montoTotal, fecha } });
     },
   },
 };
